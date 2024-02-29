@@ -55,7 +55,8 @@ export function Login() {
       if (response.status === 200 || response.status === 201) {
         setLoginError(null);
         const { access_token } = response.data;
-        const user = 1;
+        const  user  = 1;
+        // const { user } = jwtDecode(access_token);
         if (user.prioridad === 0) {
           navigate("updatepassword");
         } else if (user.prioridad === 1) {
@@ -69,8 +70,8 @@ export function Login() {
         }
         console.log("hola");
         console.log(jwtDecode(access_token));
-        console.log(access_token.sub);
-        guardarUserId(access_token.sub);
+        console.log(user.sub);
+        guardarUserId(user.sub);
         // guardarUserNivel(user.nivel);
         guardarToken(access_token);
       }
