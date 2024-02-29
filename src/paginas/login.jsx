@@ -4,6 +4,8 @@ import axios from "axios";
 import { guardarToken } from "../auth/auth";
 import { guardarUserId } from "../utils/userdata";
 
+import { jwtDecode } from "jwt-decode";
+
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -30,7 +32,10 @@ export function Login() {
   const loginUrl = `${apiKey}/auth/login`;
 
   const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData] = useState({ username: "", password: "" });
+  const [formData, setFormData] = useState({
+    nombre_usuario: "",
+    contrasenia: "",
+  });
   const [loginError, setLoginError] = useState(null);
 
   const [loginErrorMensaje, setLoginErrorMensaje] = useState(null);
@@ -45,10 +50,12 @@ export function Login() {
     e.preventDefault();
     try {
       const response = await axios.post(loginUrl, formData);
+      console.log("hola");
 
-      if (response.status === 200) {
+      if (response.status === 200 || response.status === 201) {
         setLoginError(null);
-        const { user, access_token } = response.data;
+        const { access_token } = response.data;
+        const user = 1;
         if (user.prioridad === 0) {
           navigate("updatepassword");
         } else if (user.prioridad === 1) {
@@ -60,7 +67,9 @@ export function Login() {
             navigate("dashboardclient/proyectos");
           }
         }
-        guardarUserId(user.id);
+        console.log("hola");
+        console.log(jwtDecode(access_token));
+        // guardarUserId(user.id);
         // guardarUserNivel(user.nivel);
         guardarToken(access_token);
       }
@@ -99,8 +108,7 @@ export function Login() {
         >
           <CardActionArea>
             <CardMedia sx={{ height: 130 }} /* image={portadalogin}  */ />
-            <CardContent
-            >
+            <CardContent>
               <Typography
                 className="text-center text-c600"
                 variant="h4"
@@ -112,13 +120,13 @@ export function Login() {
                 <Grid container spacing={{ xs: 2 }}>
                   <Grid xs={12}>
                     <TextField
-                      id="username"
+                      id="nombre_usuario"
                       label="Nombre de Usuario"
                       variant="outlined"
-                      name="username"
+                      name="nombre_usuario"
                       required
                       fullWidth
-                      value={formData.username}
+                      value={formData.nombre_usuario}
                       onChange={handleInputChange}
                     />
                     {loginErrorMensaje && (
@@ -129,14 +137,14 @@ export function Login() {
                   </Grid>
                   <Grid xs={12}>
                     <TextField
-                      id="password"
+                      id="contrasenia"
                       label="Contraseña"
                       variant="outlined"
-                      name="password"
+                      name="contrasenia"
                       type={showPassword ? "text" : "password"}
                       required
                       fullWidth
-                      value={formData.password}
+                      value={formData.contrasenia}
                       onChange={handleInputChange}
                       InputProps={{
                         endAdornment: (
