@@ -69,7 +69,8 @@ export function Login() {
         }
         console.log("hola");
         console.log(jwtDecode(access_token));
-        // guardarUserId(user.id);
+        console.log(access_token.sub);
+        guardarUserId(access_token.sub);
         // guardarUserNivel(user.nivel);
         guardarToken(access_token);
       }
