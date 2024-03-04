@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { BuscarUser } from "../../componenetes/BuscarUser";
-// import { CrearUser } from "../../components/CrearUser";
+import { CrearUser } from "../../componenetes/CrearUser";
 // import { useSelector } from "react-redux";
 
 // import { makeStyles } from "@material-ui/core/styles";
@@ -118,7 +118,7 @@ export function UsersTablas() {
       >
         Usuarios
       </Typography>
-      {/* <CrearUser urltable={urltable} /> */}
+      <CrearUser urltable={urltable} />
       <BuscarUser urltable={urltable} />
     </>
   );

@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Box from '@mui/material/Box';
 
 import axios from "axios";
 import { obtenerToken } from "../auth/auth";
@@ -47,7 +49,7 @@ export function BuscarUser() {
     setBuscar(value);
   };
 
- /*  const prevCount = useRef(count);
+  /*  const prevCount = useRef(count);
 
   useEffect(() => {
     if (prevCount.current !== count) {
@@ -91,27 +93,15 @@ export function BuscarUser() {
   };
   const columns = [
     { id: "id", label: "ID", minWidth: 50 },
-    { id: "actualizar", label: "ACTUALIZAR", minWidth: 100, align: "center" },
-    {
-      id: "habilitardes",
-      label: "INACTIVO / ACTIVO",
-      minWidth: 100,
-      align: "center",
-    },
-    {
-      id: "resetear",
-      label: "RESETEAR CONSTRASEñA",
-      minWidth: 100,
-      align: "center",
-    },
-    { id: "estado", label: "ESTADO", minWidth: 50 },
+    { id: "actualizar", label: "Opciones", minWidth: 100, align: "center" },
+    { id: "es_activo", label: "ESTADO", minWidth: 50 },
     { id: "nombre_usuario", label: "USUARIO", minWidth: 150 },
     { id: "nombres", label: "NOMBRES", minWidth: 50 },
     { id: "apellidos", label: "APELLIDOS", minWidth: 250 },
     { id: "ci", label: "CI", minWidth: 50 },
     { id: "complemento", label: "COMPLEMENTO", minWidth: 50 },
     { id: "correo", label: "CORRREO", minWidth: 50 },
-    { id: "es_activo", label: "ACTIVO", minWidth: 50 },
+    // { id: "es_activo", label: "ACTIVO", minWidth: 50 },
     // { id: "last_login", label: "LAST LOGIN", minWidth: 50 },
   ];
 
@@ -211,14 +201,14 @@ export function BuscarUser() {
                             align="center"
                             style={{ textAlign: "center" }}
                           >
-                            {column.id === "habilitardes" ? (
+                            {column.id === "es_activo" ? (
                               <div
                                 style={{
                                   display: "flex",
                                   justifyContent: "center",
                                 }}
                               >
-                                HOLA
+                                {value ? "Activo" : "Inactivo"}
                               </div>
                             ) : column.id === "actualizar" ? (
                               <div
@@ -229,16 +219,6 @@ export function BuscarUser() {
                               >
                                 HOLA
                                 {/* <ActualizarUser idActualizarUser={row.id} /> */}
-                              </div>
-                            ) : column.id === "resetear" ? (
-                              <div
-                                style={{
-                                  display: "flex",
-                                  justifyContent: "center",
-                                }}
-                              >
-                                {/* <ResetearPassword userId={row.id} /> */}
-                                HOLA
                               </div>
                             ) : (
                               value

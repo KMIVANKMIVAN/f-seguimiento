@@ -77,7 +77,7 @@ export function Dashboard() {
       <Box sx={{ flexGrow: 1 }}>
         <Toolbar
           sx={{
-            backgroundColor: "#0c506e",
+            backgroundColor: "#007369",
             color: "#f0faff",
           }}
         >
@@ -96,11 +96,11 @@ export function Dashboard() {
                 >
                   <List
                     sx={{
-                      backgroundColor: "#0c506e",
+                      backgroundColor: "#007369",
                       color: "#f0faff",
                     }}
                   >
-                    <ListItem
+                    {/* <ListItem
                       button
                       onClick={() =>
                         handleRedirect("https://firmadigital.bo/jacobitus4/")
@@ -115,7 +115,7 @@ export function Dashboard() {
                       </ListItemIcon>
                       <ListItemText primary="JACOBITUS TOTAL" />
                     </ListItem>
-                    <Divider component="li" />
+                    <Divider component="li" /> */}
                     <ListItem
                       button
                       onClick={() => navigate("/dashboard/userstablas")}
@@ -130,7 +130,7 @@ export function Dashboard() {
                       <ListItemText primary="Usuarios" />
                     </ListItem>
                     <Divider component="li" />
-                    <ListItem
+                    {/* <ListItem
                       button
                       onClick={() => navigate("/dashboardclient/busafirmar")}
                     >
@@ -158,7 +158,7 @@ export function Dashboard() {
                       ) : (
                         <KeyboardArrowDownIcon />
                       )}
-                    </ListItem>
+                    </ListItem> */}
                     {/* {submenuOpen && (
                       <SubMenu
                         isOpen={submenuOpen}
