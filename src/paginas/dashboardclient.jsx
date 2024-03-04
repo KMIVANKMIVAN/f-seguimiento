@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 
-import { SubMenu } from "../components/SubMenu";
+//import { SubMenu } from "../components/SubMenu";
 
-import { eliminarToken } from "../utils/auth";
+//import { eliminarToken } from "../utils/auth";
 /* import {
   obtenerUserNivel,
   eliminarUserNivel,
@@ -128,7 +128,7 @@ export function DashboardClient() {
                       <ListItemText primary="JACOBITUS TOTAL" />
                     </ListItem>
                     <Divider component="li" />
-                    {obtenerUserNivel() === 1 && (
+                    {/* {obtenerUserNivel() === 1 && ( */}
                       <ListItem
                         button
                         onClick={() => navigate("/dashboard/userstablas")}
@@ -142,10 +142,10 @@ export function DashboardClient() {
                         </ListItemIcon>
                         <ListItemText primary="Usuarios" />
                       </ListItem>
-                    )}
+                    {/* )} */}
                     <Divider component="li" />
-                    {(obtenerUserNivel() === 40 ||
-                      obtenerUserNivel() === 1) && (
+                   {/*  {(obtenerUserNivel() === 40 ||
+                      obtenerUserNivel() === 1) && ( */}
                       <ListItem
                         button
                         onClick={() => navigate("/dashboardclient/busafirmar")}
@@ -159,8 +159,9 @@ export function DashboardClient() {
                         </ListItemIcon>
                         <ListItemText primary="BUSA" />
                       </ListItem>
-                    )}
+                    {/* )} */}
                     <Divider component="li" />
+                    {/* <Divider component="li" />
                     {(obtenerUserNivel() === 9 || obtenerUserNivel() === 1) && (
                       <>
                         <ListItem button onClick={handleSubMenuClick}>
@@ -185,14 +186,14 @@ export function DashboardClient() {
                           />
                         )}
                       </>
-                    )}
+                    )} */}
                     <Divider component="li" />
                     <ListItem
                       button
                       onClick={() => {
-                        eliminarToken();
-                        eliminarUserNivel();
-                        eliminarUserId();
+                        //eliminarToken();
+                        //eliminarUserNivel();
+                        //eliminarUserId();
                         window.location.href = "/";
                       }}
                     >
